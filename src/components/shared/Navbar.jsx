@@ -57,7 +57,7 @@ const Navbar = () => {
                     <IoCartOutline />
                     <CiSearch />
 
-                    <a className="btn btn-outline px-5 btn-primary">Appoinment</a>
+                    <a className="btn btn-outline px-5 btn-primary hover:text-white">Appoinment</a>
                 </div>
 
             </div>
