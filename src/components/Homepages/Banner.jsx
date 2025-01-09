@@ -52,10 +52,10 @@ const Banner = () => {
     };
 
     return (
-        <div className="relative w-full h-[400px] md:h-[600px] overflow-hidden">
+        <div className="relative w-full h-[400px] md:h-[600px] overflow-hidden ">
             {/* Slide */}
             <div
-                className="absolute inset-0 bg-cover bg-center transition-all duration-500 object-cover"
+                className="absolute inset-0 bg-cover  transition-all duration-500 bg-top"
                 style={{ backgroundImage: `url(${slides[currentIndex].image})` }}
             ></div>
 
