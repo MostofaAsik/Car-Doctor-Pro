@@ -13,5 +13,22 @@ export default {
       },
     },
   },
-  plugins: [],
+  daisyui: {
+    themes: [
+      {
+        carDoctortheme: {
+          "primary": "#FF3811",
+          "secondary": "#f6d860",
+          "accent": "#37cdbe",
+          "neutral": "#3d4451",
+          "base-100": "#ffffff",
+        },
+      },
+      "dark",
+      "light",
+    ],
+  },
+  plugins: [
+    require('daisyui'),
+  ],
 };
