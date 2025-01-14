@@ -52,14 +52,14 @@ const Navbar = () => {
                     }
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end fle">
                 <div className="flex space-x-4 items-center ">
                     <IoCartOutline />
                     <CiSearch />
 
                     <a className="btn btn-outline px-5 btn-primary hover:text-white">Appoinment</a>
                 </div>
-
+                <Link href={'/signin'} className="btn btn-ghost">Sign In</Link>
             </div>
         </div>
     );
