@@ -53,8 +53,8 @@ const SignUp = () => {
 
     return (
         <div className="flex flex-col md:flex-row w-full h-screen">
-            {/* Toast Notifications */}
-            <ToastContainer />
+
+
 
             {/* Image Section */}
             <div className="hidden md:flex flex-1 items-center justify-center">
@@ -168,6 +168,7 @@ const SignUp = () => {
                             </Link>
                         </p>
                     </div>
+                    <ToastContainer />
                 </div>
             </div>
         </div>
