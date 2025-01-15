@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SocialSignIn from "@/components/shared/SocialSignIn";
 
 const SignIn = () => {
     const [formData, setFormData] = useState({
@@ -121,20 +122,7 @@ const SignIn = () => {
                             Or sign in with
                         </p>
                         <div className="flex justify-center space-x-4">
-                            <button
-                                type="button"
-                                className="flex items-center justify-center px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-md shadow-sm hover:bg-gray-100"
-                                onClick={() => signIn("google")}
-                            >
-                                <FaGoogle className="text-red-500 mr-2" /> Google
-                            </button>
-                            <button
-                                type="button"
-                                className="flex items-center justify-center px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-md shadow-sm hover:bg-gray-100"
-                                onClick={() => signIn("github")}
-                            >
-                                <FaGithub className="text-black mr-2" /> GitHub
-                            </button>
+                            <SocialSignIn />
                         </div>
                         <p className="text-center text-gray-600 mb-4 text-sm mt-10">
                             Not account yet? <Link href="/signup" className="text-orange-600">Sign Up</Link>

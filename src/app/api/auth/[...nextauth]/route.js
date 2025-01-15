@@ -1,5 +1,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
+import GitHubProvider from "next-auth/providers/github";
 import bcrypt from "bcrypt";
 import { connectDb } from "@/lib/connectDb";
 
@@ -31,11 +33,46 @@ const authOptions = {
                     throw new Error("Incorrect password");
                 }
 
-                // Return the user object if authenticated successfully
-                return { id: user._id.toString(), name: user.name, email: user.email };
+
+                // return { id: user._id.toString(), name: user.name, email: user.email };
+                return user;
             },
+
+        }),
+        GoogleProvider({
+            clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+            clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET,
+        }),
+        GitHubProvider({
+            clientId: process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID,
+            clientSecret: process.env.NEXT_PUBLIC_GITHUB_CLIENT_SECRET,
         }),
     ],
+    callbacks: {
+        async signIn({ user, account }) {
+            if (account.provider === 'google' || account.provider === 'github') {
+                try {
+                    const db = await connectDb();
+                    const userCollection = db.collection("users");
+                    const existingUser = await userCollection.findOne({ email: user.email });
+                    if (!existingUser) {
+                        await userCollection.insertOne({
+                            name: user.name,
+                            email: user.email,
+                            image: user.image,
+                        });
+                    }
+                    return true;
+
+                } catch (error) {
+                    console.error("Error during sign-in:", error);
+
+                }
+                return true;
+            }
+
+        }
+    },
     pages: {
         signIn: "/signin", // Redirect users here to log in
     },

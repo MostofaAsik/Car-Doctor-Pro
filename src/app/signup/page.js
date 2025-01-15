@@ -7,6 +7,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import SocialSignIn from "@/components/shared/SocialSignIn";
 
 const SignUp = () => {
     const [formData, setFormData] = useState({
@@ -148,18 +149,7 @@ const SignUp = () => {
                             Or sign in with
                         </p>
                         <div className="flex justify-center space-x-4">
-                            <button
-                                type="button"
-                                className="flex items-center justify-center px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-md shadow-sm hover:bg-gray-100"
-                            >
-                                <FaGoogle className="text-red-500 mr-2" /> Google
-                            </button>
-                            <button
-                                type="button"
-                                className="flex items-center justify-center px-4 py-2 text-sm text-gray-600 border border-gray-300 rounded-md shadow-sm hover:bg-gray-100"
-                            >
-                                <FaGithub className="text-black mr-2" /> GitHub
-                            </button>
+                            <SocialSignIn />
                         </div>
                         <p className="text-center text-gray-600 mb-4 text-sm">
                             Already have an account?{" "}
